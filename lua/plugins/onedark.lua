@@ -1,5 +1,9 @@
 local function do_onedark_config()
     require("onedarkpro").setup({
+        highlights = {
+            StorageClass = { fg = "#d55fde" },
+            Operator = { fg = "#d55fde" }
+        },
         styles = {
             types = "NONE",
             methods = "bold",
