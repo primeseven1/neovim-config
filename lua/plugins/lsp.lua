@@ -4,7 +4,7 @@ end
 
 local function do_mason_lsp_config()
     require("mason-lspconfig").setup({
-        ensure_installed = { "bashls", "lua_ls", "pyright", "asm_lsp", "clangd", "rust_analyzer" }
+        ensure_installed = { "bashls", "lua_ls", "pyright", "asm_lsp", "clangd", "rust_analyzer", "quick_lint_js", "tsserver" },
     })
 end
 
@@ -16,8 +16,10 @@ local function do_lsp_config()
     lspconfig.lua_ls.setup({ capabilities = capabilities })
     lspconfig.pyright.setup({ capabilities = capabilities })
     lspconfig.asm_lsp.setup({ capabilities = capabilities })
-    lspconfig.clangd.setup({ capabilities = capabilities })
+    lspconfig.clangd.setup({ capabilities = capabilities, cmd = { "clangd", "--header-insertion=never", "--enable-config" } })
     lspconfig.rust_analyzer.setup({ capabilities = capabilities })
+    lspconfig.quick_lint_js.setup({ capabilities = capabilities })
+    lspconfig.tsserver.setup({ capabilities = capabilities })
 end
 
 return {
