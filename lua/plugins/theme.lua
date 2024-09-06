@@ -1,8 +1,11 @@
 local function do_onedark_config()
+    local onedarkpro = require("onedarkpro")
+    local colors = require("onedarkpro.helpers").get_colors("onedark_vivid")
+
     require("onedarkpro").setup({
         highlights = {
-            StorageClass = { fg = "#d55fde" },
-            Operator = { fg = "#d55fde" }
+            StorageClass = { fg = colors.purple },
+            ["@parameter"] = { fg = colors.red, italic = true }
         },
         styles = {
             types = "NONE",
@@ -18,6 +21,9 @@ local function do_onedark_config()
             parameters = "italic",
             conditionals = "NONE",
             virtual_text = "NONE",
+        },
+        plugins = {
+            treesitter = true
         }
     })
 
@@ -29,4 +35,3 @@ return {
     priority = 1000,
     config = do_onedark_config
 }
-

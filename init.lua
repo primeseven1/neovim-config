@@ -1,4 +1,4 @@
--- Line numbers
+-- Line numbers instead of tildes
 vim.cmd("set number")
 
 -- Indentation
@@ -8,8 +8,9 @@ vim.cmd("set shiftwidth=4")
 vim.cmd("set softtabstop=4")
 vim.cmd("set expandtab")
 
--- Since makefiles require tabs for indentation, make sure that tabs are used for makefiles
+-- For makefiles, tabs must be used
 vim.cmd("autocmd FileType make setlocal tabstop=4 shiftwidth=4 softtabstop=4 noexpandtab")
+vim.cmd("set clipboard+=unnamedplus")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
